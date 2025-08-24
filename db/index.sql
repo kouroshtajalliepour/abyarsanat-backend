@@ -1,4 +1,4 @@
-\c test
+\c abyarsanat
 \i 1.log.sql
 \i 2.file.sql
 \i 3.admin.sql

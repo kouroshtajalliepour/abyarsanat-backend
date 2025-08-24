@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'backend-service',
+      name: 'abyarsanat-backend-service',
       script: 'dist/server.js',
       exec_mode: 'cluster',
       instances: 'max',
