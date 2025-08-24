@@ -72,6 +72,7 @@ export default (app:IApp) => {
                 // collectView: true,
                 collectLog: true,
                 // useCaptcha: true,
+                
             },
             db: {
                 tableName: 'user_transaction',
@@ -176,6 +177,7 @@ export default (app:IApp) => {
                 update: {
                     disabled: false,
                     options: {
+                        maxRequests: 50,
                         notify: async(config:any)=> {
                             await sendNotification(config)
                         },
