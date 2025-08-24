@@ -5,7 +5,7 @@ module.exports = {
       script: 'dist/server.js',
       exec_mode: 'cluster',
       instances: 'max',
-      port: 8080
+      port: 7070
     }
   ]
 }
