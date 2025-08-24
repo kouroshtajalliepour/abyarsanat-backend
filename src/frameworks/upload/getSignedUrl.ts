@@ -83,7 +83,7 @@ async function getSignedUrl(
               AllowedHeaders: ['*'],
               AllowedMethods: ['POST'],
               AllowedOrigins: [
-                uploadCorsOrigin ? uploadCorsOrigin : '*'  // 'https://admin.abyarsanat.com'
+                uploadCorsOrigin ? uploadCorsOrigin : '*'  // 'https://admin.abyarsanat.ir'
               ],
             },
           ],
