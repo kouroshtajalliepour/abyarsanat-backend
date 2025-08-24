@@ -3,7 +3,7 @@
 CREATE TABLE product_category_filter_value (
     id VARCHAR(26) NOT NULL PRIMARY KEY,
     serial_id SERIAL NOT NULL UNIQUE,
-    index_number NUMERIC;
+    index_number NUMERIC,
     slug VARCHAR(100) NOT NULL UNIQUE,
 
     product_category_id VARCHAR(26) NOT NULL,

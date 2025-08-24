@@ -41,15 +41,6 @@ CREATE TABLE product_model (
 
 );
 
-ALTER TABLE product_model ADD COLUMN product_brand_id VARCHAR(26);
-ALTER TABLE product_model ADD CONSTRAINT product_model_product_brand_fk FOREIGN KEY(product_brand_id) REFERENCES product_brand(id) ON DELETE CASCADE;
-
-
-ALTER TABLE product_model ADD COLUMN price_is_dynamic BOOLEAN NOT NULL DEFAULT false;
-ALTER TABLE product_model ADD COLUMN max_amount_purchaseable NUMERIC DEFAULT 99;
-ALTER TABLE product_model DROP COLUMN last_modified_at;
-ALTER TABLE product_model ADD COLUMN last_modified_at TIMESTAMP;
-
 CREATE TABLE product_model_localized_info (
     id VARCHAR(26) NOT NULL,
     name VARCHAR(50),

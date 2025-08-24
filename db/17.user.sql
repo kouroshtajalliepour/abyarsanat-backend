@@ -93,4 +93,3 @@ CREATE TABLE user_transaction (
     
     CONSTRAINT user_TR_fk FOREIGN KEY(user_id) REFERENCES _user(id) ON DELETE CASCADE
 );
-ALTER TABLE user_transaction ADD COLUMN cart_number VARCHAR(100);
