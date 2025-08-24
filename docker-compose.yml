@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    user: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=13736777kt7
+      - POSTGRES_USER=postgres
+  owner-register-api:
+    depends_on:
+      - db
+    image: owner-register-api
+    ports:
+      - 8080:8080
+    volumes:
+      - logs:/logs
+volumes:
+  logs:
+    driver: local
+  pg-data:
+    driver: local

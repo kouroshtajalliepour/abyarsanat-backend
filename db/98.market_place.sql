@@ -1,0 +1,6 @@
+-- * sellers auth 
+-- * sellers personal routes
+-- * sellers manage request routes on products 
+-- * sellers pricing routes
+-- * sellers shipment routes and other functionality
+-- * sellers monetization

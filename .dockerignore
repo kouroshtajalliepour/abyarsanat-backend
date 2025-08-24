@@ -1,0 +1,15 @@
+__test__
+config
+src
+.git
+Dockerfile
+gitlab-ci.yml
+.gitignore
+.env
+global.d.ts
+README.md
+server.ts
+tsconfig.json
+yarn.lock
+.dockerignore
+docker-compose.yml
