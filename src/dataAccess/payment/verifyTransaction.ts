@@ -14,7 +14,7 @@ export default async function ({
 
         await client.query("begin")
         
-        const{rows} = await client.query("SELECT t.cart_items,t.ref_id, t.verified, t.payment_id, t.authority_id, t.provider, t.promotion_slug, t.promotion_discount_price, t.promotion_discount_percentage, t.total_promoted_amount, u.phone_number, u.first_name FROM user_transaction t left join _user u on u.id = t.user_id  WHERE t.authority_id = $1", [
+        const{rows} = await client.query("SELECT t.cart_items,t.ref_id, t.verified, t.payment_id, t.authority_id, t.provider, t.promotion_slug, t.promotion_discount_price, t.promotion_discount_percentage, t.total_promoted_amount, t.total_payed_amount, u.phone_number, u.first_name FROM user_transaction t left join _user u on u.id = t.user_id  WHERE t.authority_id = $1", [
             authority_id
         ])
 
@@ -22,7 +22,7 @@ export default async function ({
             throw 404
         }
 
-        const {cart_items:cartItems, total_promoted_amount} = rows[0]
+        const {cart_items:cartItems, total_payed_amount} = rows[0]
         
         if (!cartItems) {
             throw 404
@@ -32,7 +32,7 @@ export default async function ({
             return {
                 payment_id: rows[0].payment_id,
                 ref_id: rows[0].ref_id,
-                total_promoted_amount: rows[0].total_promoted_amount,
+                total_promoted_amount: rows[0].total_payed_amount,
                 authority_id: rows[0].authority_id,
                 provider: rows[0].provider
             }
@@ -87,11 +87,12 @@ export default async function ({
 
         let result : any
         let refId : string | undefined
+        
 
-        if (total_promoted_amount != '0') {
+        if (total_payed_amount != '0') {
             
             const {ref_id} = await paymentVerification({
-                amount: Number(total_promoted_amount),
+                amount: Number(total_payed_amount),
                 authority_id
             })
     
